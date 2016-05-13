@@ -12,33 +12,34 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/User"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:id="@+id/recentUser"
             android:src="@drawable/user_profile" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="NAME"
-                android:textSize="16dp"
-                android:textStyle="bold"
-                android:id="@+id/recentName"
-                android:layout_alignRight="@+id/recentUser"
-                android:paddingLeft="100dp"
-                />
 
             <TextView
+                android:id="@+id/Name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/recentTel"
+                android:layout_alignRight="@+id/recentUser"
+                android:paddingLeft="100dp"
+                android:text="NAME"
                 android:textSize="16dp"
-                android:textStyle="bold"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/Tel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="100dp"
                 android:text="TEL"
-                android:paddingLeft="100dp"/>
+                android:textSize="16dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </LinearLayout>

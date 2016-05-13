@@ -3,12 +3,15 @@ package com.example.cracking.groupproj;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
+
+import java.io.FileNotFoundException;
 
 /**
  * This Is project's third Activity's Java File
@@ -32,10 +35,14 @@ public class galleryActivity extends Activity {
         if(requestCode == LOAD_IMAGE_RESULTS && resultCode == RESULT_OK && data != null){
             Uri pickedImg = data.getData();
             String[] filePath = {MediaStore.Images.Media.DATA};
-            Cursor cursor = getContentResolver().query(pickedImg,filePath,null,null,null);
+            Cursor cursor = getContentResolver().query(pickedImg, filePath, null, null, null);
             cursor.moveToFirst();
-            String imagePath = cursor.getString(cursor.getColumnIndex(filePath[0]));
-            loaded_img.setImageBitmap(BitmapFactory.decodeFile(imagePath));
+            try {
+                Bitmap bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(pickedImg));
+                loaded_img.setImageBitmap(bitmap);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
             cursor.close();
         }
     }

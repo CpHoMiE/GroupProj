@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClick4(View v) {
 
+        Intent intent = new Intent(getApplicationContext(),ListViewActivity.class);
+        startActivity(intent);
     }
 
     public void onClick5(View v) {

@@ -15,8 +15,8 @@ import java.util.Date;
 public class firstActivity extends Activity {
 
     ListView recentList;
-    recentListAdapter listAdapter;
-    ArrayList<listData> listDatas;
+    CustomListViewAdapter listAdapter;
+    ArrayList<listData> listData;
 
     protected void onCreate(Bundle savedInstanceState){
 
@@ -33,7 +33,7 @@ public class firstActivity extends Activity {
 
         setData();
 
-        listAdapter = new recentListAdapter(this,listDatas);
+        listAdapter = new CustomListViewAdapter(this,listData);
 
         recentList = (ListView)findViewById(R.id.recentListView);
         recentList.setAdapter(listAdapter);
@@ -45,8 +45,7 @@ public class firstActivity extends Activity {
 
 
     private void setData(){
-        listDatas = new ArrayList<listData>();
-        listDatas.add(new listData(R.drawable.user_profile, "소녀시대", "010-1111-2222"));
+        listData = new ArrayList<listData>();
+        listData.add(new listData(R.drawable.user_profile, "null", "010-null-null"));
     }
 }
-
